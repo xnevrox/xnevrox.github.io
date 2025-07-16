@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>XNEVROX</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: red;
+            font-family: "Times New Roman", serif;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        .login {
+            margin-bottom: 30px;
+        }
+        input {
+            background-color: black;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+            text-align: center;
+        }
+        button {
+            background-color: black;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>XNEVROX</h1>
+
+    <div class="login">
+        <input type="text" id="user" placeholder="Usuario"><br>
+        <input type="password" id="pass" placeholder="Contraseña"><br>
+        <button onclick="login()">INICIAR SESIÓN</button>
+    </div>
+
+    <div id="info" class="hidden">
+        <p>Damián Vivar</p>
+        <p>Uriangato Guanajuato México</p>
+        <p>15 años</p>
+        <p>Llamadas y extorsión</p>
+        <p>Número de teléfono: sin servicio</p>
+        <p>Método de llamadas: Text Now</p>
+        <p>Contacto Instagram</p>
+
+        <button onclick="eliminar()">ELIMINAR INFORMACIÓN</button>
+        <p id="status" style="margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        function login() {
+            const user = document.getElementById('user').value;
+            const pass = document.getElementById('pass').value;
+            if (user === '7876' && pass === '7876') {
+                document.querySelector('.login').classList.add('hidden');
+                document.getElementById('info').classList.remove('hidden');
+            } else {
+                alert('ACCESO DENEGADO');
+            }
+        }
+
+        function eliminar() {
+            const status = document.getElementById('status');
+            status.innerText = 'BORRANDO INFORMACIÓN...';
+            setTimeout(() => {
+                status.innerText = 'Listo.';
+                setTimeout(() => {
+                    window.close();
+                }, 1500);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
